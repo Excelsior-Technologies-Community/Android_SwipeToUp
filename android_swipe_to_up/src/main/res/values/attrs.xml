@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SwipeToUpView">
+        <!-- Minimum swipe distance in pixels to trigger a fling -->
+        <attr name="swipeThreshold" format="dimension" />
+
+        <!-- Duration of the swipe animation in milliseconds -->
+        <attr name="animationDuration" format="integer" />
+
+        <!-- Enable or disable swipe up gesture -->
+        <attr name="enableSwipeUp" format="boolean" />
+
+        <!-- Enable or disable swipe down gesture -->
+        <attr name="enableSwipeDown" format="boolean" />
+
+        <!-- Sensitivity multiplier for swipe gestures (0.5 = half speed, 2.0 = double speed) -->
+        <attr name="swipeSensitivity" format="float" />
+
+        <!-- Enable over-scrolling at the first and last items -->
+        <attr name="enableOverScroll" format="boolean" />
+
+        <!-- Resistance factor for over-scroll (higher = more resistance) -->
+        <attr name="overScrollResistance" format="float" />
+
+        <!-- Threshold percentage (0-1) of screen height to auto-complete swipe -->
+        <attr name="autoSwipeThreshold" format="float" />
+
+        <!-- Enable fade effect during swipe -->
+        <attr name="enableFadeEffect" format="boolean" />
+
+        <!-- Starting alpha value for current item (0-1) -->
+        <attr name="fadeStartAlpha" format="float" />
+
+        <!-- Ending alpha value when swiping away (0-1) -->
+        <attr name="fadeEndAlpha" format="float" />
+    </declare-styleable>
+</resources>
