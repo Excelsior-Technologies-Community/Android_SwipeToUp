@@ -157,39 +157,50 @@ class SwipeToUpView @JvmOverloads constructor(
                 // ---------------- CURRENT PAGE ----------------
                 0 -> {
                     child.visibility = View.VISIBLE
-                    // Current page fades out and scales down slightly as it's being swiped away
                     if (dragOffset < 0) {
-                        // Swiping up - keep solid, just move up
+                        // Swiping down → up
                         child.translationY = dragOffset
-                        child.scaleX = 1f - (progressUp * 0.1f) // Slightly scale down
+                        child.scaleX = 1f - (progressUp * 0.1f)
                         child.scaleY = 1f - (progressUp * 0.1f)
-                        child.alpha = 1f // Stay fully visible
+                        child.alpha = 1f
                     } else {
-                        // Swiping down - stay fixed but become transparent
+                        // Swiping up → down (keep as original)
                         child.translationY = 0f
                         child.scaleX = 1f - (progressDown * 0.05f)
                         child.scaleY = 1f - (progressDown * 0.05f)
-                        child.alpha = 1f - (progressDown * 0.6f) // Fade out more (60%)
+                        child.alpha = 1f - (progressDown * 0.6f)
                     }
                     child.elevation = if (dragOffset > 0) 5f else 10f
                 }
 
                 // ---------------- NEXT PAGE BELOW ----------------
+                // ---------------- NEXT PAGE BELOW ----------------
                 1 -> {
                     child.visibility = View.VISIBLE
-                    // Next page grows and comes up as you swipe up
-                    val scale = minScale + (1f - minScale) * progressUp
-                    child.scaleX = scale
-                    child.scaleY = scale
-                    child.alpha = minAlpha + (1f - minAlpha) * progressUp
-                    child.translationY = stackOffset - progressUp * stackOffset
-                    child.elevation = 6f
+                    if (dragOffset < 0) {
+                        // Only animate for swipe down → up
+                        val scale = 0.75f + 0.25f * progressUp  // start smaller (0.75) → 1.0
+                        val alpha = 0.5f + 0.5f * progressUp    // fade in from 0.5 → 1.0
+                        val translateY = stackOffset - progressUp * stackOffset // smooth slide up
+
+                        child.scaleX = scale
+                        child.scaleY = scale
+                        child.alpha = alpha
+                        child.translationY = translateY
+                        child.elevation = 6f
+                    } else {
+                        // Swipe up → down: keep original look
+                        child.scaleX = minScale
+                        child.scaleY = minScale
+                        child.alpha = minAlpha
+                        child.translationY = stackOffset
+                        child.elevation = 6f
+                    }
                 }
 
                 // ---------------- PREVIOUS PAGE ABOVE ----------------
                 -1 -> {
                     child.visibility = View.VISIBLE
-                    // Previous page comes down from top with smooth animation
                     child.translationY = -height + dragOffset.coerceAtLeast(0f)
                     child.scaleX = 1f
                     child.scaleY = 1f
