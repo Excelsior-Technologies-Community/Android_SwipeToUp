@@ -23,13 +23,8 @@ SwipeToUpView is a custom Android ViewGroup that allows vertical swipe navigatio
 
 # **Preview**
 ---
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/80735f74-620e-4a83-bfb4-ed7a0995a474"
-       alt="Demo GIF"
-       width="200">
+<img src="https://github.com/S13reya/Android_SwipeToUp/blob/stages/app/src/main/assets/demovideo.gif" height="320"/>
 
-
-</p>
 
 
 ## ⚡ **Installation**
