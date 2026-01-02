@@ -186,7 +186,7 @@ swipeView.setOnSwipeListener(object : SwipeToUpView.OnSwipeListener {
 
 ```
 
-## ** 4. Update a position indicator (optional)**
+## **4. Update a position indicator (optional)**
 ```
 private fun updatePositionIndicator() {
     val current = swipeView.getCurrentPosition() + 1
