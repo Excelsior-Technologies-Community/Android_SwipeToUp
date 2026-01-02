@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <declare-styleable name="SwipeToUpView">
+
         <!-- Minimum swipe distance in pixels to trigger a fling -->
         <attr name="swipeThreshold" format="dimension" />
 
@@ -13,13 +15,13 @@
         <!-- Enable or disable swipe down gesture -->
         <attr name="enableSwipeDown" format="boolean" />
 
-        <!-- Sensitivity multiplier for swipe gestures (0.5 = half speed, 2.0 = double speed) -->
+        <!-- Sensitivity multiplier for swipe gestures -->
         <attr name="swipeSensitivity" format="float" />
 
         <!-- Enable over-scrolling at the first and last items -->
         <attr name="enableOverScroll" format="boolean" />
 
-        <!-- Resistance factor for over-scroll (higher = more resistance) -->
+        <!-- Resistance factor for over-scroll -->
         <attr name="overScrollResistance" format="float" />
 
         <!-- Threshold percentage (0-1) of screen height to auto-complete swipe -->
@@ -28,10 +30,24 @@
         <!-- Enable fade effect during swipe -->
         <attr name="enableFadeEffect" format="boolean" />
 
-        <!-- Starting alpha value for current item (0-1) -->
+        <!-- Starting alpha value for current item -->
         <attr name="fadeStartAlpha" format="float" />
 
-        <!-- Ending alpha value when swiping away (0-1) -->
+        <!-- Ending alpha value when swiping away -->
         <attr name="fadeEndAlpha" format="float" />
+
+
+        <!-- 🔹 ADDED (MISSING – REQUIRED FOR STACK EFFECT) -->
+
+        <!-- Vertical offset between stacked cards -->
+        <attr name="stackOffset" format="dimension" />
+
+        <!-- Minimum scale for stacked cards -->
+        <attr name="minScale" format="float" />
+
+        <!-- Minimum alpha for stacked cards -->
+        <attr name="minAlpha" format="float" />
+
     </declare-styleable>
+
 </resources>
